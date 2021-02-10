@@ -1,0 +1,85 @@
+
+<div class="col-md-6">
+    <h1>• LISTES DES GARAGES :</h1>
+</div>
+
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/addgarage">
+        Add new garage
+    </button>
+</div>
+
+<div class="col-md-12">
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+    <table id="tableauUser">
+        <thead>
+            <tr>
+            <th>ID GARAGE</th>
+            <th>NAME</th>
+            <th>STREET</th>
+            <th>STREET COMPLEMENT</th>
+            <th>POSTAL CODE</th>
+            <th>CITY</th>
+            <th>OWNER</th>
+            <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="filter.name" name="name">
+                      </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="filter.city" name="city">
+                </div>
+                </td>
+                <td>
+                <button type="submit" class="btn btn-success">
+                    Search
+                </button>
+                </td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let garage of garages">
+                <td>{{ garage.id }}</td>
+                <td>{{ garage.name }}</td>
+                <td>{{garage.street}}</td>
+                <td>{{ garage.streetComplement }}</td>
+                <td>{{garage.postalCode}}</td>
+                <td>{{garage.city}}</td>
+                <td>{{garage.owner}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editgarage', garage.id]">
+                      Edit
+                    </button>
+                </td>
+            </tr> 
+        </tbody>
+    </table>
+</form>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li *ngIf="prevLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadPrevPage()">Previous</a>
+            </li>
+            <li *ngFor="let page of getPageNumbers" class="page-item">
+                <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
+            </li>
+            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+            <li *ngIf="nextLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadNextPage()">Next</a>
+            </li>
+        </ul>
+      </nav>
+</div>
+

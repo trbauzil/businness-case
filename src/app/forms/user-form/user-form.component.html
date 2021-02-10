@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box" *ngIf="user" #userForm="ngForm" (ngSubmit)="submit()">
+                    <h1>Login</h1>
+                    <input type="text" name="first-name" placeholder="Prenom" [(ngModel)]="user.firstName"> 
+                    <small *ngFor="let err of retrieveErrors('firstName')" class="form-text text-danger">{{ err }}</small>
+                    <input type="text" name="last-name" placeholder="Nom" [(ngModel)]="user.lastName">
+                    <small *ngFor="let err of retrieveErrors('lastName')" class="form-text text-danger">{{ err }}</small>
+                    <input type="text" name="email" placeholder="Mail" [(ngModel)]="user.email">
+                    <input type="text" name="siret" placeholder="Siret" [(ngModel)]="user.siret"> 
+                    <input type="submit" name="" value="Save the user">
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

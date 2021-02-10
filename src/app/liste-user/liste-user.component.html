@@ -1,0 +1,81 @@
+
+<div class="col-md-6">
+    <h1>• LISTES DES UTILISATEURS :</h1>
+</div>
+
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/adduser">
+        Add new user
+    </button>
+</div>
+
+<div class="col-md-12">
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+        <table id="tableauUser">
+            <thead>
+                <tr>
+                <th>ID USER</th>
+                <th>LASTNAME</th>
+                <th>FIRSTNAME</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>GARAGES</th>
+                <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filter.lastName" name="lastName">
+                          </div>
+                    </td>
+                    <td></td>
+                    <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="filter.email" name="baaaa">
+                    </div>
+                    </td>
+                    <td>
+                    <button type="submit" class="btn btn-success">
+                        Search
+                    </button>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.garages}}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/edituser', user.id]">
+                          Edit
+                        </button>
+                      </td>
+                </tr> 
+            </tbody>
+        </table>
+    </form>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li *ngIf="prevLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadPrevPage()">Previous</a>
+            </li>
+            <li *ngFor="let page of getPageNumbers" class="page-item">
+                <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
+            </li>
+            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+            <li *ngIf="nextLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadNextPage()">Next</a>
+            </li>
+        </ul>
+      </nav>
+</div>
