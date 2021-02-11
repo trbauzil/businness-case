@@ -30,19 +30,4 @@ export class GarageFormComponent implements OnInit {
       this.formSubmit.emit(this.garage);
     }
   }
-
-  public retrieveErrors(fieldName: string): Array<string> {
-    const arr: Array<string> = [];
-
-    if (this.violationList !== null) {
-      for (const err of this.violationList.violations) {
-        if (err.propertyPath === fieldName) {
-          arr.push(err.message);
-        }
-      }
-    }
-
-    return arr;
-  }
-
 }

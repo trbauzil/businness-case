@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAdComponent } from './add-ad/add-ad.component';
 import { AddGarageComponent } from './add-garage/add-garage.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { DetailsAdComponent } from './details-ad/details-ad.component';
@@ -24,10 +25,11 @@ const routes: Routes = [
   {path: 'editgarage/:id', component: EditGarageComponent},
   {path: 'listead', component: ListeAdComponent},
   {path: 'detailsad', component: DetailsAdComponent},
-  {path: 'editad', component: EditAdComponent},
+  {path: 'editad/:id', component: EditAdComponent},
   {path: 'lastads', component: LastAdsComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'addgarage', component: AddGarageComponent},
+  {path: 'addad', component: AddAdComponent},
 ];
 
 @NgModule({

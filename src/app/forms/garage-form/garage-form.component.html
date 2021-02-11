@@ -3,13 +3,18 @@
         <div class="col-md-6">
             <div class="card">
                 <form class="box" *ngIf="garage" #garageForm="ngForm" (ngSubmit)="submit()">
-                    <h1>Création d'un garage</h1>
-                    <p class="text-muted"> Enregistrez un garage</p>
+
+                    <h1>GARAGE</h1>
+                    <p class="text-muted"> Enregistrez/Modifiez un garage</p>
+                    
+                    <small class="minwhite">Nom</small>
                     <input type="text" name="name" placeholder="Nom" [(ngModel)]="garage.name"> 
+                    <small class="minwhite">Code Postal</small>
                     <input type="text" name="postal-code" placeholder="Code postal" [(ngModel)]="garage.postalCode">
+                    <small class="minwhite">Propriétaire</small>
                     <input type="text" name="owner" placeholder="Propriétaire" [(ngModel)]="garage.owner"> 
-                    <input type="submit" name="" value="Save the garage">
-                
+                    <input type="submit" name="" value="Sauvegardez le garage">
+
                 </form>
             </div>
         </div>

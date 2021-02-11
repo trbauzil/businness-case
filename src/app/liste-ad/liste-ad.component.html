@@ -1,1 +1,81 @@
-<p>liste-ad works!</p>
+
+<div class="col-md-6">
+    <h1>• LISTES DES ANNONCES :</h1>
+</div>
+
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/addad">
+        Add new advert
+    </button>
+</div>
+
+<div class="col-md-12">
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+        <table id="tableauUser">
+            <thead>
+                <tr>
+                    <th>ID AD</th>
+                    <th>TITLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>KM</th>
+                    <th>PRICE</th>
+                    <th>BRAND</th>
+                    <th>MODEL</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filter.title" name="title">
+                          </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filter.brand" name="brand">
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success">
+                            Search
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ad of ads">
+                    <td>{{ ad.id }}</td>
+                    <td>{{ ad.title }}</td>
+                    <td>{{ad.description}}</td>
+                    <td>{{ ad.km }}</td>
+                    <td>{{ad.price}}</td>
+                    <td>{{ad.brand}}</td>
+                    <td>{{ad.model}}</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editad', ad.id]">
+                          Edit
+                        </button>
+                      </td>
+                </tr> 
+            </tbody>
+        </table>
+    </form>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li *ngIf="prevLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadPrevPage()">Previous</a>
+            </li>
+            <li *ngFor="let page of getPageNumbers" class="page-item">
+                <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
+            </li>
+            <li *ngIf="nextLink !== null" class="page-item btn btn-dark">
+              <a class="page-link" (click)="loadNextPage()">Next</a>
+            </li>
+        </ul>
+      </nav>
+</div>

@@ -24,18 +24,15 @@ export class EditGarageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-        // Retrieve params from path URL (defined in app-routing.module.ts).
         this.activatedRoute.params.subscribe((params) => {
-          // params.YOUR_VAR
           this.httpClient.get<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages/' + params.id).subscribe({
-        next: (garage: GarageJsonld) => {
-          this.garage = garage;
-        },
-        error: (err: HttpErrorResponse) => {
-          // You have to handle error better than this ;) .
-          alert(err.status + ' - ' + err.statusText);
-        },
-      });
+            next: (garage: GarageJsonld) => {
+              this.garage = garage;
+            },
+            error: (err: HttpErrorResponse) => {
+              alert(err.status + ' - ' + err.statusText);
+            },
+          });
         });
   }
 

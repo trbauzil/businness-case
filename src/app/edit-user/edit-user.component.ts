@@ -32,7 +32,6 @@ export class EditUserComponent implements OnInit {
               this.user = user;
             },
             error: (err: HttpErrorResponse) => {
-              // You have to handle error better than this ;) .
               alert(err.status + ' - ' + err.statusText);
             },
           });

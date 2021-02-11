@@ -35,7 +35,7 @@ body {
 }
 
 .box input[type="text"],
-.box input[type="password"] {
+.box input[type="number"] {
     border: 0;
     background: none;
     display: block;
@@ -57,7 +57,7 @@ body {
 }
 
 .box input[type="text"]:focus,
-.box input[type="password"]:focus {
+.box input[type="number"]:focus {
     width: 300px;
     border-color: #b34f16
 }

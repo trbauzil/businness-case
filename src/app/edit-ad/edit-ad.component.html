@@ -1,1 +1,7 @@
-<p>edit-ad works!</p>
+<div class="m-4">
+    <button type="button" class="btn btn-link" routerLink="/listead">
+      Back to advert list
+    </button>
+  </div>
+
+  <app-ad-form [ad]="ad" [violationList]="violationList" (formSubmit)="submit($event)"></app-ad-form>

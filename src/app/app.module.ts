@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { AddGarageComponent } from './add-garage/add-garage.component';
 import { GarageFormComponent } from './forms/garage-form/garage-form.component';
+import { AddAdComponent } from './add-ad/add-ad.component';
+import { AdFormComponent } from './forms/ad-form/ad-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { GarageFormComponent } from './forms/garage-form/garage-form.component';
     LastAdsComponent,
     UserFormComponent,
     AddGarageComponent,
-    GarageFormComponent
+    GarageFormComponent,
+    AddAdComponent,
+    AdFormComponent
   ],
   imports: [
     BrowserModule,

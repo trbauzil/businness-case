@@ -1,0 +1,7 @@
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/addad">
+        Back to the list
+    </button>
+</div>
+
+<app-ad-form [ad]="ad" [violationList]="violationList" (formSubmit)="submit($event)"></app-ad-form>

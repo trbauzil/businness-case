@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    padding-bottom: 1%;
+    color: #222229;
+}
+
+#tableauUser { 
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #393939;
+        color: white;
+        font-weight: bold;
+    }
+
+    td {
+        background-color: #222222;
+        color: lightgray;
+    }
+  }

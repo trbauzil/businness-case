@@ -3,14 +3,25 @@
         <div class="col-md-6">
             <div class="card">
                 <form class="box" *ngIf="user" #userForm="ngForm" (ngSubmit)="submit()">
-                    <h1>Login</h1>
+
+                    <h1>USER</h1>
+                    <p class="text-muted"> Enregistrez/Modifiez un user</p>
+                    
+                    <small class="minwhite">Prenom</small>
                     <input type="text" name="first-name" placeholder="Prenom" [(ngModel)]="user.firstName"> 
                     <small *ngFor="let err of retrieveErrors('firstName')" class="form-text text-danger">{{ err }}</small>
+                    
+                    <small class="minwhite">Nom</small>
                     <input type="text" name="last-name" placeholder="Nom" [(ngModel)]="user.lastName">
                     <small *ngFor="let err of retrieveErrors('lastName')" class="form-text text-danger">{{ err }}</small>
+                    
+                    <small class="minwhite">Mail</small>
                     <input type="text" name="email" placeholder="Mail" [(ngModel)]="user.email">
+                    
+                    <small class="minwhite">Siret</small>
                     <input type="text" name="siret" placeholder="Siret" [(ngModel)]="user.siret"> 
-                    <input type="submit" name="" value="Save the user">
+                    
+                    <input type="submit" name="" value="Sauvegardez le user">
                 
                 </form>
             </div>

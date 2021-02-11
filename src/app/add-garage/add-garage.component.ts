@@ -32,7 +32,7 @@ export class AddGarageComponent implements OnInit {
   }
 
   public submit(garage: Garage): void {
-    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users', garage).subscribe({
+    this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages', garage).subscribe({
       next: (createdGarage) => {
         // Use a html message (<div>) and ngIf to inform the user creation.
         this.router.navigate(['/listegarage']);
