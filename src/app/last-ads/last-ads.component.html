@@ -1,1 +1,14 @@
-<p>last-ads works!</p>
+<tr>
+    <td>{{ lastad.id }}</td>
+    <td>{{ lastad.title }}</td>
+    <td class="desc">{{lastad.description}}</td>
+    <td>{{ lastad.km }}</td>
+    <td>{{lastad.price}}</td>
+    <td>{{lastad.brand}}</td>
+    <td>{{lastad.model}}</td>
+    <td>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editad', lastad.id]">
+          Edit
+        </button>
+      </td>
+</tr> 

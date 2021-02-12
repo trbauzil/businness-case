@@ -1,0 +1,23 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+tr{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: brown;
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+    width: 10%;
+}
+
+.desc{
+    width: 30%;
+}

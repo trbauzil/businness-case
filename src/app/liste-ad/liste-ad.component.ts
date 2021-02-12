@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { LastAdsComponent } from '../last-ads/last-ads.component';
 import { AdCollection } from '../models/ad-collection';
 import { AdJsonld } from '../models/ad-jsonld';
 
@@ -17,6 +18,9 @@ export class ListeAdComponent implements OnInit {
 
   public lastPage: number|null = null;
 
+  public lastad: AdJsonld = this.last(this.ads);
+
+
   public filter = {
     title: '',
     brand: '',
@@ -28,6 +32,10 @@ export class ListeAdComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPage('/api/listings?page=1');
+  }
+
+  public last(array: Array<AdJsonld>): AdJsonld {
+    return array[array.length - 1];
   }
 
   public loadNextPage(): void {
@@ -73,6 +81,7 @@ export class ListeAdComponent implements OnInit {
     if (link !== null){
       this.httpClient.get<AdCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com' + link).subscribe((data) => {
         this.ads = data['hydra:member'];
+        this.lastad = this.last(this.ads);
 
         if( data['hydra:view']['hydra:next'] !== undefined){
           this.nextLink = data['hydra:view']['hydra:next'];

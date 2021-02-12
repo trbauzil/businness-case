@@ -47,6 +47,8 @@
                 </tr>
             </thead>
             <tbody>
+                
+                <app-last-ads [lastad]="lastad"></app-last-ads>
                 <tr *ngFor="let ad of ads">
                     <td>{{ ad.id }}</td>
                     <td>{{ ad.title }}</td>
