@@ -11,6 +11,7 @@
 
 <div class="col-md-12">
     <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+        <app-last-ads [lastad]="lastad"></app-last-ads>
         <table id="tableauUser">
             <thead>
                 <tr>
@@ -48,7 +49,6 @@
             </thead>
             <tbody>
                 
-                <app-last-ads [lastad]="lastad"></app-last-ads>
                 <tr *ngFor="let ad of ads">
                     <td>{{ ad.id }}</td>
                     <td>{{ ad.title }}</td>

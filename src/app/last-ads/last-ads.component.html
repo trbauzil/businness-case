@@ -1,4 +1,29 @@
-<tr>
+
+<table id="tableauUser">
+  <thead>
+      <tr id="title">
+          <th></th>
+          <th></th>
+          <th> LAST AD</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+      <tr>
+          <th>ID AD</th>
+          <th>TITLE</th>
+          <th>DESCRIPTION</th>
+          <th>KM</th>
+          <th>PRICE</th>
+          <th>BRAND</th>
+          <th>MODEL</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr>
     <td>{{ lastad.id }}</td>
     <td>{{ lastad.title }}</td>
     <td class="desc">{{lastad.description}}</td>
@@ -10,5 +35,8 @@
         <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editad', lastad.id]">
           Edit
         </button>
-      </td>
-</tr> 
+    </td>
+  </tr>          
+  
+  </tbody>
+</table>

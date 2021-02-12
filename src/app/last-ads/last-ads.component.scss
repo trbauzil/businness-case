@@ -4,20 +4,30 @@
     padding: 0;
 }
 
-tr{
+#tableauUser { 
     width: 100%;
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
-    background-color: brown;
-}
+    margin-bottom: 25px;
 
-td{
-    padding: 10px;
-    text-align: center;
-    width: 10%;
-}
+    #title th{
+        background-color: #222222;
+    }
 
-.desc{
-    width: 30%;
-}
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #393939;
+        color: white;
+        font-weight: bold;
+    }
+
+    td {
+        background-color:brown;
+        color: lightgray;
+    }
+  }
