@@ -1,3 +1,14 @@
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/listegarage">
+        Liste des garages
+    </button>
+    <button type="button" class="btn btn-dark" routerLink="/listead">
+        Liste des annonces
+    </button>
+</div>
+
+<hr />
+
 
 <div class="col-md-6">
     <h1>• LISTES DES UTILISATEURS :</h1>
@@ -53,10 +64,14 @@
                     <td>{{user.phone}}</td>
                     <td>{{user.garages}}</td>
                     <td>
+                        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/detailsuser', user.id]">
+                            Check
+                        </button>
                         <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/edituser', user.id]">
                           Edit
                         </button>
-                      </td>
+                        
+                    </td>
                 </tr> 
             </tbody>
         </table>
@@ -70,9 +85,6 @@
             <li *ngFor="let page of getPageNumbers" class="page-item">
                 <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
             </li>
-            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
             <li *ngIf="nextLink !== null" class="page-item btn btn-dark">
               <a class="page-link" (click)="loadNextPage()">Next</a>
             </li>

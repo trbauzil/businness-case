@@ -19,9 +19,30 @@
                     <input type="text" name="email" placeholder="Mail" [(ngModel)]="user.email">
                     
                     <small class="minwhite">Siret</small>
-                    <input type="text" name="siret" placeholder="Siret" [(ngModel)]="user.siret"> 
+                    <input type="text" name="siret" placeholder="Siret" maxlength=14 [(ngModel)]="user.siret"> 
                     
                     <input type="submit" name="" value="Sauvegardez le user">
+                
+                </form>
+                <form class="box" *ngIf="user && details" #userForm="ngForm">
+
+                    <h1>USER</h1>
+                    <p class="text-muted"> Informations d'un utilisateur</p>
+                    
+                    <small class="minwhite">Prenom</small>
+                    <input type="text" name="first-name" placeholder="Prenom" [(ngModel)]="user.firstName" disabled="disabled"> 
+                    <small *ngFor="let err of retrieveErrors('firstName')" class="form-text text-danger">{{ err }}</small>
+                    
+                    <small class="minwhite">Nom</small>
+                    <input type="text" name="last-name" placeholder="Nom" [(ngModel)]="user.lastName" disabled="disabled">
+                    <small *ngFor="let err of retrieveErrors('lastName')" class="form-text text-danger">{{ err }}</small>
+                    
+                    <small class="minwhite">Mail</small>
+                    <input type="text" name="email" placeholder="Mail" [(ngModel)]="user.email" disabled="disabled">
+                    
+                    <small class="minwhite">Siret</small>
+                    <input type="text" name="siret" placeholder="Siret" maxlength=14 [(ngModel)]="user.siret" disabled="disabled"> 
+                
                 
                 </form>
             </div>

@@ -12,6 +12,9 @@ import { GarageJsonld } from 'src/app/models/garage-jsonld';
 export class GarageFormComponent implements OnInit {
 
   @Input()
+  public details = false;
+
+  @Input()
   public garage: Garage|null = null;
 
   @Input()

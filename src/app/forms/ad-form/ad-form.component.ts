@@ -13,6 +13,9 @@ export class AdFormComponent implements OnInit {
   public ad: Ad|null = null;
 
   @Input()
+  public details = false;
+
+  @Input()
   public violationList: ConstraintViolationList|null = null;
 
   @Output()
@@ -24,22 +27,10 @@ export class AdFormComponent implements OnInit {
   }
 
   public submit(): void {
+    console.log(this.ad);
+    
     if (this.ad !== null) {
       this.formSubmit.emit(this.ad);
     }
-  }
-
-  public retrieveErrors(fieldName: string): Array<string> {
-    const arr: Array<string> = [];
-
-    if (this.violationList !== null) {
-      for (const err of this.violationList.violations) {
-        if (err.propertyPath === fieldName) {
-          arr.push(err.message);
-        }
-      }
-    }
-
-    return arr;
   }
 }

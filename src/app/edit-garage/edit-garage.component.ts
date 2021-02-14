@@ -23,6 +23,7 @@ export class EditGarageComponent implements OnInit {
     private router: Router,
   ) { }
 
+  //Récupérer les données du garage que l'on souhaite modifier
   ngOnInit(): void {
         this.activatedRoute.params.subscribe((params) => {
           this.httpClient.get<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages/' + params.id).subscribe({

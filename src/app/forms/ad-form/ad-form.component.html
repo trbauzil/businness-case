@@ -8,6 +8,10 @@
                     <p class="text-muted"> Enregistrez/Modifiez une advert</p>
                     <small class="minwhite">Title</small>
                     <input type="text" name="title" placeholder="Titre" [(ngModel)]="ad.title">
+                    <small class="minwhite">Description</small>
+                    <input type="text" name="desc" placeholder="Description" size="50" [(ngModel)]="ad.description">
+                    <small class="minwhite">releaseYear</small>
+                    <input type="text" name="year" placeholder="Year" [(ngModel)]="ad.releaseYear">
                     <small class="minwhite">Km</small>
                     <br>
                     <input type="number" name="km" placeholder="Km" [(ngModel)]="ad.km">
@@ -18,7 +22,33 @@
                     <input type="text" name="brand" placeholder="Marque" [(ngModel)]="ad.brand"> 
                     <small class="minwhite">Modele</small>
                     <input type="text" name="model" placeholder="Modele" [(ngModel)]="ad.model"> 
+                    <small class="minwhite">Garage</small>
+                    <input type="text" name="garage" placeholder="Garage" [(ngModel)]="ad.garage">
                     <input type="submit" name="" value="Sauvegardez la advert">
+                
+                </form>
+                <form class="box" *ngIf="ad && details" #userForm="ngForm">
+
+                    <h1>ADVERT</h1>
+                    <p class="text-muted"> Information de l'annonce</p>
+                    <small class="minwhite">Title</small>
+                    <input type="text" name="title" placeholder="Titre" [(ngModel)]="ad.title" disabled="disabled">
+                    <small class="minwhite">Description</small>
+                    <input type="text" name="desc" placeholder="Description" size="50" [(ngModel)]="ad.description" disabled="disabled">
+                    <small class="minwhite">releaseYear</small>
+                    <input type="text" name="year" placeholder="Year" [(ngModel)]="ad.releaseYear" disabled="disabled">
+                    <small class="minwhite">Km</small>
+                    <br>
+                    <input type="number" name="km" placeholder="Km" [(ngModel)]="ad.km" disabled="disabled">
+                    <br>
+                    <small class="minwhite">Price</small>
+                    <input type="text" name="price" placeholder="Prix" [(ngModel)]="ad.price" disabled="disabled">
+                    <small class="minwhite">Brand</small>
+                    <input type="text" name="brand" placeholder="Marque" [(ngModel)]="ad.brand" disabled="disabled"> 
+                    <small class="minwhite">Modele</small>
+                    <input type="text" name="model" placeholder="Modele" [(ngModel)]="ad.model" disabled="disabled"> 
+                    <small class="minwhite">Garage</small>
+                    <input type="text" name="garage" placeholder="Garage" [(ngModel)]="ad.garage" disabled="disabled">
                 
                 </form>
             </div>

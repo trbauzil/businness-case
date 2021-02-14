@@ -1,19 +1,8 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card box">
-                
-                <h1>Informations sur l'utilisateur ... :</h1>
-                <p>Nom : ...</p>
-                <p>Prénom : ...</p>
-                <p>Mail : ...</p>
-                <p>Liste des garages : </p>
-
-                <input type="button" name="" value="REVENIR A LA LISTE">
-                
-            </div>
-        </div>
-    </div>
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/">
+        Back to the list
+    </button>
 </div>
-    
+
+<app-user-form [user]="user" [details]="details"></app-user-form>

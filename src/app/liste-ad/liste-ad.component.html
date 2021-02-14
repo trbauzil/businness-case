@@ -1,3 +1,14 @@
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/listegarage">
+        Liste des garages
+    </button>
+    <button type="button" class="btn btn-dark" routerLink="/">
+        Liste des utilisateurs
+    </button>
+</div>
+
+<hr />
+
 
 <div class="col-md-6">
     <h1>• LISTES DES ANNONCES :</h1>
@@ -58,6 +69,9 @@
                     <td>{{ad.brand}}</td>
                     <td>{{ad.model}}</td>
                     <td>
+                        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/detailsad', ad.id]">
+                            Check
+                        </button>
                         <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editad', ad.id]">
                           Edit
                         </button>

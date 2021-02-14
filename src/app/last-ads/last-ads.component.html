@@ -1,4 +1,4 @@
-
+<!-- Tableau qui va s'insérer au dessus de celui qui liste les annonces-->
 <table id="tableauUser">
   <thead>
       <tr id="title">
@@ -23,20 +23,23 @@
       </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>{{ lastad.id }}</td>
-    <td>{{ lastad.title }}</td>
-    <td class="desc">{{lastad.description}}</td>
-    <td>{{ lastad.km }}</td>
-    <td>{{lastad.price}}</td>
-    <td>{{lastad.brand}}</td>
-    <td>{{lastad.model}}</td>
-    <td>
+    <tr>
+      <td>{{ lastad.id }}</td>
+      <td>{{ lastad.title }}</td>
+      <td>{{lastad.description}}</td>
+      <td>{{ lastad.km }}</td>
+      <td>{{lastad.price}}</td>
+      <td>{{lastad.brand}}</td>
+      <td>{{lastad.model}}</td>
+      <td>
+        <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/detailsad', lastad.id]">
+          Check
+        </button>
         <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editad', lastad.id]">
           Edit
         </button>
-    </td>
-  </tr>          
+      </td>
+    </tr>          
   
   </tbody>
 </table>

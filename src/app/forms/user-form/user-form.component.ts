@@ -18,6 +18,9 @@ export class UserFormComponent implements OnInit {
   public user: User|null = null;
 
   @Input()
+  public details = false;
+
+  @Input()
   public violationList: ConstraintViolationList|null = null;
 
   @Output()

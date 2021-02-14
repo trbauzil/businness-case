@@ -1,3 +1,14 @@
+<div class="m-4">
+    <button type="button" class="btn btn-dark" routerLink="/listead">
+        Liste des annonces
+    </button>
+    <button type="button" class="btn btn-dark" routerLink="/">
+        Liste des utilisateurs
+    </button>
+</div>
+
+<hr />
+
 
 <div class="col-md-6">
     <h1>• LISTES DES GARAGES :</h1>
@@ -13,17 +24,19 @@
     <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
     <table id="tableauUser">
         <thead>
+            <!--Les colonnes du tableau des garages-->
             <tr>
-            <th>ID GARAGE</th>
-            <th>NAME</th>
-            <th>STREET</th>
-            <th>STREET COMPLEMENT</th>
-            <th>POSTAL CODE</th>
-            <th>CITY</th>
-            <th>OWNER</th>
-            <th></th>
+                <th>ID GARAGE</th>
+                <th>NAME</th>
+                <th>STREET</th>
+                <th>STREET COMPLEMENT</th>
+                <th>POSTAL CODE</th>
+                <th>CITY</th>
+                <th>OWNER</th>
+                <th></th>
             </tr>
             <tr>
+                <!--Partie filtre juste au dessus du début de la liste des garages-->
                 <td></td>
                 <td>
                     <div class="form-group">
@@ -47,6 +60,7 @@
             </tr>
         </thead>
         <tbody>
+            <!--boucle qui affiche tous les garages-->
             <tr *ngFor="let garage of garages">
                 <td>{{ garage.id }}</td>
                 <td>{{ garage.name }}</td>
@@ -55,9 +69,13 @@
                 <td>{{garage.postalCode}}</td>
                 <td>{{garage.city}}</td>
                 <td>{{garage.owner}}</td>
+                <!--envoie sur une page pour modifier le garage sur lequel on a cliqué-->
                 <td>
+                    <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/detailsgarage', garage.id]">
+                        Check
+                    </button>
                     <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/editgarage', garage.id]">
-                      Edit
+                        Edit
                     </button>
                 </td>
             </tr> 
@@ -65,6 +83,7 @@
     </table>
 </form>
 
+    <!--permet de changer de page dans le tableau-->
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li *ngIf="prevLink !== null" class="page-item btn btn-dark">
@@ -73,9 +92,6 @@
             <li *ngFor="let page of getPageNumbers" class="page-item">
                 <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
             </li>
-            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
             <li *ngIf="nextLink !== null" class="page-item btn btn-dark">
               <a class="page-link" (click)="loadNextPage()">Next</a>
             </li>

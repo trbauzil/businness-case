@@ -38,7 +38,7 @@ export class AddAdComponent implements OnInit {
   public submit(ad: Ad): void {
     this.httpClient.post<AdJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/listings', ad).subscribe({
       next: (createdAd) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/listead']);
       },
       error: (err: HttpErrorResponse) => {
         if (err.status === 422) {

@@ -34,17 +34,12 @@ export class AddGarageComponent implements OnInit {
   public submit(garage: Garage): void {
     this.httpClient.post<GarageJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/garages', garage).subscribe({
       next: (createdGarage) => {
-        // Use a html message (<div>) and ngIf to inform the user creation.
         this.router.navigate(['/listegarage']);
-
-        // Redirect list / details
       },
       error: (err: HttpErrorResponse) => {
         if (err.status === 422) {
           this.violationList = err.error;
-          // alert(this.violationList['hydra:description']);
         }  else {
-          // Inform the user that an error occurred (display a better message then my example).
           alert(err.status + ' - An error occurred.');
         }
       },

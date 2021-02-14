@@ -69,7 +69,7 @@ export class ListeGarageComponent implements OnInit {
     
   }
 
-
+  //charge les garages et la pagination
   private loadPage(link: string|null): void {
     if (link !== null){
       this.httpClient.get<GarageCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com' + link).subscribe((data) => {
