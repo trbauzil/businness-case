@@ -10,7 +10,7 @@ import { UserJsonld } from '../models/user-jsonld';
 })
 export class ListeUserComponent implements OnInit {
 
-  public users: Array<UserJsonld> = [];
+  public users: any | null | UserJsonld = null;
 
   public prevLink: string|null = null;
   public nextLink: string|null = null;
@@ -27,7 +27,7 @@ export class ListeUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loadPage('/api/users?page=1');
+    this.loadPage('/api/pro');
   }
 
   public loadNextPage(): void {
@@ -55,15 +55,16 @@ export class ListeUserComponent implements OnInit {
   }
 
   public applyFilters(page: number = 1): void{
-    let url = '/api/users?page=' + page;
+    //let url = '/api/users?page=' + page;
+    let url = '/api/pro';
 
     if (this.filter.lastName !== '') {
-      url += '&lastName=' + this.filter.lastName;
+      url += '/' + this.filter.lastName;
     }
 
-    if (this.filter.email !== '') {
+    /*if (this.filter.email !== '') {
       url += '&email=' + this.filter.email;
-    }
+    }*/
 
     this.loadPage(url);
     
@@ -71,8 +72,9 @@ export class ListeUserComponent implements OnInit {
 
   private loadPage(link: string|null): void {
     if (link !== null){
-      this.httpClient.get<UserCollection>('https://hb-bc-dwwm-2020.deploy.this-serv.com' + link).subscribe((data) => {
-        this.users = data['hydra:member'];
+      this.httpClient.get<UserCollection>('http://localhost/Symfony/businesscase/public/index.php' + link).subscribe((data) => {
+        //this.users = data['hydra:member'];
+        this.users = data;
 
         if( data['hydra:view']['hydra:next'] !== undefined){
           this.nextLink = data['hydra:view']['hydra:next'];

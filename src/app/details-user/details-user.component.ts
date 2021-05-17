@@ -23,7 +23,7 @@ export class DetailsUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.httpClient.get<UserJsonld>('https://hb-bc-dwwm-2020.deploy.this-serv.com/api/users/' + params.id).subscribe({
+      this.httpClient.get<UserJsonld>('http://localhost/Symfony/businesscase/public/index.php/api/pro' + params.id).subscribe({
         next: (user: UserJsonld) => {
           this.user = user;
         },
